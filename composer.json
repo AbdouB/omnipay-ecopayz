@@ -1,7 +1,7 @@
 {
-    "name": "dercoder/omnipay-ecopayz",
+    "name": "abdoub/omnipay-ecopayz",
     "type": "library",
-    "description": "Ecopayz driver for the Omnipay payment processing library",
+    "description": "Ecopayz driver for the Omnipay version (3.0.x-dev) payment processing library",
     "keywords": [
         "ecopayz",
         "gateway",
@@ -10,17 +10,17 @@
         "pay",
         "payment"
     ],
-    "homepage": "https://github.com/dercoder/omnipay-ecopayz",
+    "homepage": "https://github.com/abdoub/omnipay-ecopayz",
     "license": "MIT",
     "autoload": {
         "psr-0": { "Omnipay\\Ecopayz\\" : "src/" }
     },
     "require": {
-        "omnipay/common": "~2.3"
+        "omnipay/common": "3.0.x-dev"
     },
     "require-dev": {
-        "omnipay/tests": "~2.0",
-        "satooshi/php-coveralls": "1.0.0"
+        "omnipay/tests": "v3.0-alpha.1",
+        "satooshi/php-coveralls": "2.0.0"
     },
     "extra": {
         "branch-alias": {

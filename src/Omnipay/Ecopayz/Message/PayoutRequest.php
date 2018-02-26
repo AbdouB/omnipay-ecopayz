@@ -2,6 +2,7 @@
 namespace Omnipay\Ecopayz\Message;
 
 use Omnipay\Common\Exception\InvalidResponseException;
+use Omnipay\Common\Http\ResponseParser;
 
 /**
  * Ecopayz Payout Request
@@ -159,9 +160,8 @@ class PayoutRequest extends AbstractRequest
             'SOAPAction' => 'http://www.ecocard.com/merchantAPI/Payout'
         );
 
-        $httpRequest = $this->httpClient->createRequest('POST', $this->getEndpoint(), $headers, $data);
-        $httpResponse = $httpRequest->send();
-        $xmlResponse = $httpResponse->xml()
+        $httpResponse = $this->httpClient->createRequest('POST', $this->getEndpoint(), $headers, $data);
+        $xmlResponse = ResponseParser::xml($httpResponse)
             ->children('http://schemas.xmlsoap.org/soap/envelope/')
             ->children('http://www.ecocard.com/merchantAPI/');
 

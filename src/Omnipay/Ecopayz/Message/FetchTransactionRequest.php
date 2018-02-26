@@ -3,6 +3,7 @@ namespace Omnipay\Ecopayz\Message;
 
 use Omnipay\Common\Exception\InvalidRequestException;
 use Omnipay\Common\Exception\InvalidResponseException;
+use Omnipay\Common\Http\ResponseParser;
 
 /**
  * Ecopayz Fetch Transaction Request
@@ -112,9 +113,8 @@ class FetchTransactionRequest extends AbstractRequest
                 'SOAPAction' => 'http://www.ecocard.com/merchantAPI/QueryBySVSTransactionID'
             );
 
-            $httpRequest = $this->httpClient->createRequest('POST', $this->getEndpoint(), $headers, $data);
-            $httpResponse = $httpRequest->send();
-            $xmlResponse = $httpResponse->xml()
+            $httpResponse = $this->httpClient->createRequest('POST', $this->getEndpoint(), $headers, $data);
+            $xmlResponse = ResponseParser::xml($httpResponse)
                 ->children('http://schemas.xmlsoap.org/soap/envelope/')
                 ->children('http://www.ecocard.com/merchantAPI/');
 
@@ -140,9 +140,8 @@ class FetchTransactionRequest extends AbstractRequest
                 'SOAPAction' => 'http://www.ecocard.com/merchantAPI/QueryByCustomerTransactionID'
             );
 
-            $httpRequest = $this->httpClient->createRequest('POST', $this->getEndpoint(), $headers, $data);
-            $httpResponse = $httpRequest->send();
-            $xmlResponse = $httpResponse->xml()
+            $httpResponse = $this->httpClient->createRequest('POST', $this->getEndpoint(), $headers, $data);
+            $xmlResponse = ResponseParser::xml($httpResponse)
                 ->children('http://schemas.xmlsoap.org/soap/envelope/')
                 ->children('http://www.ecocard.com/merchantAPI/');
 
