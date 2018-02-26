@@ -1,6 +1,6 @@
 # Omnipay: Skrill
 
-**Ecopayz driver for the Omnipay PHP payment processing library**
+**Ecopayz driver for the Omnipay version (3.0.x-dev) PHP payment processing library**
 
 **This is a fork of dercoder/omnipay-ecopayz updated to work with omnipay version 3.0**
 
